@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#wget -N –no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
+#wget -N –no-check-certificate https://raw.githubusercontent.com/13509098133/elang/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 

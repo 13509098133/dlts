@@ -585,7 +585,8 @@ Check_python(){
 	if [[ -z ${python_ver} ]]; then
 		echo -e "${Info} 没有安装Python，开始安装..."
 		if [[ ${release} == "centos" ]]; then
-			yum install -y python
+			yum install -y python2
+			alternatives --set python /usr/bin/python2
 		else
 			apt-get install -y python
 		fi

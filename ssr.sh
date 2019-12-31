@@ -40,6 +40,14 @@ check_root(){
 check_sys(){
 	if [[ -f /etc/redhat-release ]]; then
 		release="centos"
+		VER=`cat /etc/redhat-release  | awk -F "release" '{print $2}'| awk -F" " '{print $1}'`
+		if [[ $VER == 8* ]]; then
+			OS="release8"
+		elif [[ $VER == 7* ]]; then
+			OS="release7"
+		else
+			OS="release6"
+		fi
 	elif cat /etc/issue | grep -q -E -i "debian"; then
 		release="debian"
 	elif cat /etc/issue | grep -q -E -i "ubuntu"; then
@@ -81,6 +89,12 @@ BBR_installation_status(){
 	fi
 }
 # 设置 防火墙规则
+set_firewall(){
+	firewall-cmd --permanent --add-port=${ssr_port}/tcp
+	firewall-cmd --permanent --add-port=${ssr_port}/udp
+	firewall-cmd --reload
+}
+
 Add_iptables(){
 	iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport ${ssr_port} -j ACCEPT
 	iptables -I INPUT -m state --state NEW -m udp -p udp --dport ${ssr_port} -j ACCEPT
@@ -698,6 +712,13 @@ Install_SSR(){
 	Add_iptables
 	echo -e "${Info} 开始保存 iptables防火墙规则..."
 	Save_iptables
+	if [[ OS="release8" ]];then
+		echo -e "${Info} 开始设置firewall防火墙规则..."
+		set_firewall
+	fi
+	echo -e "${Info} 所有步骤 安装完毕，开始启动 ShadowsocksR服务端..."
+	Start_SSR
+}
 	echo -e "${Info} 所有步骤 安装完毕，开始启动 ShadowsocksR服务端..."
 	Start_SSR
 }

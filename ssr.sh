@@ -719,9 +719,7 @@ Install_SSR(){
 	echo -e "${Info} 所有步骤 安装完毕，开始启动 ShadowsocksR服务端..."
 	Start_SSR
 }
-	echo -e "${Info} 所有步骤 安装完毕，开始启动 ShadowsocksR服务端..."
-	Start_SSR
-}
+
 Update_SSR(){
 	SSR_installation_status
 	echo -e "因破娃暂停更新ShadowsocksR服务端，所以此功能临时禁用。"

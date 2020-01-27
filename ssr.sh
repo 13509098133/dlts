@@ -680,7 +680,7 @@ JQ_install(){
 # 安装 依赖
 Installation_dependency(){
 	if [[ ${release} == "centos" ]]; then
-		Centos_yum
+		#Centos_yum
 	else
 		Debian_apt
 	fi

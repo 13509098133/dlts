@@ -681,6 +681,7 @@ JQ_install(){
 Installation_dependency(){
 	if [[ ${release} == "centos" ]]; then
 		#Centos_yum
+pwd
 	else
 		Debian_apt
 	fi

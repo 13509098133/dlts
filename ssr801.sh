@@ -1500,7 +1500,7 @@ echo -e "  ShadowsocksR 一键管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_
  ${Green_font_prefix}15.${Font_color_suffix} 升级脚本
  "
 menu_status
-echo && read -t 3 -e -p "请输入数字 [0-15]：" num
+echo && read -t 30 -e -p "请输入数字 [0-15]：" num
 num=${num:-0}
 case "$num" in
 	0)
